@@ -1,56 +1,53 @@
 /**
  * @author Sandeep_Singh
- * @Functionality Create Contact in Address Book. 
+ * @Functionality Add New Contact 
  *
  */
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Person {
+	String fname;
+	String lname;
+	String phonenumber;
+	String City;
+	String zipcode;
+	String Email;
+
+	Person(String fname, String lname, String phoneNumber, String city, String zipCode, String email) {
+		this.fname = fname;
+		this.lname = lname;
+		this.phonenumber = phoneNumber;
+		this.City = city;
+		this.zipcode = zipCode;
+		this.Email = email;
+	}
+}
+
 public class AddressBook {
-	private String city;
-	private String state;
-	private String zipcode;
-	private String email;
+	public static ArrayList<Person> contacts = new ArrayList<Person>();
 
-	public AddressBook(String city, String state, String zipcode, String email) {
-	this.city=city;
-	this.state=state;
-	this.email=email;
-	this.zipcode=zipcode;
-
+	private static void addContact() {
+		Scanner inp = new Scanner(System.in);
+		System.out.println("Enter the firstName:");
+		String firstName = inp.nextLine();
+		System.out.println("Enter the LastName:");
+		String lastName = inp.nextLine();
+		System.out.println("Enter the phone:");
+		String phoneNum = inp.nextLine();
+		System.out.println("\nAddress:");
+		System.out.println("Enter the city:");
+		String city = inp.nextLine();
+		System.out.println("Enter the state:");
+		String state = inp.nextLine();
+		System.out.println("Enter the zipcode:");
+		String zipCode = inp.nextLine();
+		System.out.println("Enter the email-id:");
+		String email = inp.nextLine();
+		contacts.add(new Person(firstName, lastName, phoneNum, city, state, zipCode));
 	}
 
-	public String toString() {
-		return " [city=" + city + ", state=" + state + ", zipcode=" + zipcode + ", email=" + email ;
+	public static void main(String[] args) {
+		addContact();
 	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getZipcode() {
-		return zipcode;
-	}
-
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
-
-	public String getemail() {
-		return email;
-	}
-
-	public void setemail(String email) {
-		this.email = email;
-	}
-
 }
